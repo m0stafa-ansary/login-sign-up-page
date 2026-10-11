@@ -1,0 +1,184 @@
+:root {
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1f2937;
+    --primary: #0c00f7;
+    --border: #d1d5db;
+    --shadow:#2f00ff;
+    --link: #4f46e5;
+}
+
+[data-theme="dark"] {
+    --bg: #111827;
+    --card: #1f2937;
+    --text: #f3f4f6;
+    --primary: #fafaff;
+    --border: #374151;
+    --switch: #0c00f7;
+    --link: #a5b4fc;
+}
+
+body {
+    background: var(--bg);
+    margin: 0;
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    overflow: hidden;
+}
+
+.login-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+button {
+    background: var(--text);
+    color: var(--card);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.start {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 100px;
+}
+h1 {
+    margin:0;
+    text-shadow: 1px 1px 2px var(--shadow);
+    font-size: 60px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+#theme-toggle {
+    position: relative;
+    width: 64px;
+    height: 32px;
+    border: none;
+    border-radius: 999px;
+    background: var(--text);
+    cursor: pointer;
+    padding: 0;
+}
+#theme-toggle::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+[data-theme="dark"] #theme-toggle {
+    background: var(--switch);
+}
+
+[data-theme="dark"] #theme-toggle::before {
+    transform: translateX(32px);
+    background: var(--primary);
+}
+#theme-toggle {
+    transition: background 0.3s;
+}
+
+#theme-toggle::before {
+    transition: transform 0.5s;  
+}
+#theme-toggle::before {
+    content: "🌙";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+[data-theme="dark"] #theme-toggle::before {
+    content: "☀️";
+}
+
+label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+    font-size: 23px;
+    font-style: italic;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"]
+{
+    width: 300px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bolder;
+    padding: 5px;
+    font-style: italic;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    font-style: italic;
+}
+
+.remember input[type="checkbox"] {
+    width: 20px;
+    margin: 0;
+}
+
+.submit {
+    margin-top: 20px;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bolder;
+    font-size: 16px;
+    border: 1px solid var(--border);
+        font-style: italic;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 20px;
+}
+p a {
+    color: var(--link);
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+@media (max-width: 480px) {
+.login-card {
+    padding: 20px;
+    border-radius: 12px;
+}
+}
+.start {   
+    gap: 20px;
+
+}
